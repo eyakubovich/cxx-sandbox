@@ -14,7 +14,7 @@ T& assign(T* obj, U&& other) {
 template <typename T>
 class assignable : public T {
 public:
-#if NO_INHERITABLE_CTORS
+#ifdef NO_INHERITABLE_CTORS
 	template <typename... Args>
 	assignable(Args... args) :
 		T(std::forward<Args>(args)...) {
